@@ -5,13 +5,18 @@ APP PLANNING & DESIGN
 1. PROJECT NAME & THEME
 -------------------------
 - What is your app called, and what type of app is it?  
+    -ran.coordinate, It gives you random coordinates in your area to explore
 - What style or vibe do you want users to experience?
+    -Silly, suspence, creppy
 - What about your app will require a log-in structure?
+    -Log in to see your previous adventures
 
 2. CORE FUNCTIONALITY
 -------------------------
 - What are the essential features your app must have?  
+    -log-in, dictioary of previous places, random coordinates
 - What optional features could make your app more interactive or personalized?
+    -
 
 3. SECRET OR PERSONALIZED CONTENT
 
