@@ -16,25 +16,34 @@ APP PLANNING & DESIGN
 - What are the essential features your app must have?  
     -log-in, dictioary of previous places, random coordinates
 - What optional features could make your app more interactive or personalized?
-    -
+    -users can choose what they want their interface to look like from preset options
 
 3. SECRET OR PERSONALIZED CONTENT
 
 -------------------------
-- What content will users see after logging in?  
+- What content will users see after logging in?
+    -they will see a basic home screen with an input of the vibe of your adventure, coordinate output, and a spot for your previous
+        coordinates
 - Will this content change depending on who is using the app (admin, user, special user?)
+    -yes, It changes for each person using the app
 
 4. USER EXPERIENCE (UX) DESIGN
 -------------------------
 - How should your app look and feel?
+    -It will simple with a daker interface
 - How will users navigate between pages?
+    -inputing a password or phrase
 
 5. SECURITY FEATURES
 -------------------------
 - What password and authentication rules will you enforce?  
+    -have to have a min of 8 letters, a number, and a capital
 - How will you protect secret pages from unauthorized access?
+    -must require 2 authentication questions
 
 6. OPTIONAL CREATIVE ENHANCEMENTS
 -------------------------
 - What customization or fun features could users enjoy?
+    -different color schemes for the interface
 - Are there interactive elements, like games, quizzes, or badges, you could include?
+    -badges for how mant places you've gone
