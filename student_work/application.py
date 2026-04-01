@@ -22,7 +22,7 @@ def init_db():
     conn.close()
 
 init_db()
-
+#that image thing doesnt dp anythign rn
 # ---------- STYLE ----------
 base_style = """
 <style>
