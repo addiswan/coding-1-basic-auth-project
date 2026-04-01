@@ -28,7 +28,7 @@ base_style = """
 <style>
 body {
     font-family: Arial, sans-serif;
-    background: #f4f6f8;
+    background: <img src =".website.background.jpeg"/> ;
     display: flex;
     justify-content: center;
     align-items: center;
