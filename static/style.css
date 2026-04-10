@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: rgb(178, 209, 240);
+    background: url("website.background.jpeg");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,5 +31,5 @@ button {
 }
 
 button:hover {
-    background: #145316
+    background: #2f754a
 }
