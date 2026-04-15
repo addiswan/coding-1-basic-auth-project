@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-image: url("website.background.jpeg");
+    background-size: 200px;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
