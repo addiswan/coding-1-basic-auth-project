@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-image: url("web.background.jpeg");
     box-shadow: inset 0 0 0 1500px rgba(15, 129, 34, 0.2);
-    background-size: 2000px;
+    background-size: 1800px;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
