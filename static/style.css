@@ -1,7 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: rgba(108, 202, 93, 0.089);
-    background-image: url("web.background.jpeg"), rgba(108, 202, 93, 0.089);
+    background-image: url("web.background.jpeg");
     background-size: 2000px;
     background-repeat: no-repeat;
     background-attachment: fixed;
