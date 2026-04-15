@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
+    background: rgba(108, 202, 93, 0.089);
     background-image: url("web.background.jpeg");
-    background: rgba(62, 187, 43, 0.24);
     background-size: 2000px;
     background-repeat: no-repeat;
     background-attachment: fixed;
