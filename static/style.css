@@ -1,5 +1,7 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #369627;
+    opacity: 0.3;
     background-image: url("web.background.jpeg");
     background-size: 2000px;
     background-repeat: no-repeat;
