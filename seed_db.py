@@ -41,7 +41,7 @@ def seed_database():
             )
             print(f"Created user: {username}")
         
-        for subject, entries in sample_users:
+        for subject, entries in sample_entries:
             hashed_pw = bcrypt.hashpw(entires.encode("utf-8"), bcrypt.gensalt())
             conn.execute(
                 "INSERT INTO users (subject, entries) VALUES (?, ?)",
