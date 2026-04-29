@@ -44,13 +44,7 @@ a:link, a:visited{
     font-family: Arial, sans-serif;
     font-size:small;
     text-decoration: none;
-    background-color: aqua;
-    color: black;
-    border: 2px solid aqua;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+    color:aqua
 }
 
 a:hover, a:active{
