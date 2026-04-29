@@ -88,8 +88,7 @@ def dashboard():
     # #  XTODO: Get all entries that belong to the logged-in user
     # # Example:
     entries = conn.execute(
-          "SELECT * FROM entries WHERE user=?",
-          (session["user"],)
+          "SELECT * FROM entries"
       ).fetchall()
 
     # # TODO: Close the connection
