@@ -42,8 +42,18 @@ button:hover {
 
 a:link{
     color:aqua;
-    background-color: rgb(219, 143, 91);
     font-family: Arial, sans-serif;
+    font-size:small;
+    text-decoration: none;
+    background-color: rgb(160, 211, 207);
+}
+
+a:hover{
+    color:rgb(33, 108, 168);
+    font-family: Arial, sans-serif;
+    font-size:small;
+    text-decoration: none;
+    background-color: rgb(160, 211, 207);
 }
 
 
