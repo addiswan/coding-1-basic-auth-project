@@ -29,7 +29,7 @@ def seed_database():
     sample_entries = [
         ("test", "testing"),
         ("Locations", "City, State"),
-        ("entirie one", "Today, I went to..."),
+        ("entry one", "Today, I went to..."),
     ]
     
     try:
@@ -41,11 +41,11 @@ def seed_database():
             )
             print(f"Created user: {username}")
         
-        for subject, entries in sample_entries:
+        for title, entries in sample_entries:
             hashed_pw = bcrypt.hashpw(entries.encode("utf-8"), bcrypt.gensalt())
             conn.execute(
                 "INSERT INTO users (title, entries) VALUES (?, ?)",
-                (subject, hashed_pw)
+                (title, hashed_pw)
             )
             print(f"Created entries: {title}")
         
