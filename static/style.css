@@ -40,6 +40,12 @@ button:hover {
     background: #3456a0
 }
 
+a:link{
+    color:aqua;
+    background-color: rgb(219, 143, 91);
+    font-family: Arial, sans-serif;
+}
+
 
 /* block style
 someclass/some property insert numerb
