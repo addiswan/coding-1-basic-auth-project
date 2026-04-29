@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-image: url("web.background.jpeg");
-    box-shadow: inset 0 0 0 1500px rgba(15, 129, 95, 0.2);
+    box-shadow: inset 0 0 0 1500px rgba(10, 104, 76, 0.466);
     background-size: 2000px;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -36,7 +36,7 @@ button {
 }
 
 button:hover {
-    background: #2f7558
+    background: #342f75
 }
 
 
