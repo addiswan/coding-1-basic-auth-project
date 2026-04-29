@@ -41,21 +41,21 @@ button:hover {
 }
 
 a:link, a:visited{
-    color:aqua;
     font-family: Arial, sans-serif;
     font-size:small;
     text-decoration: none;
-    background-color: rgb(160, 211, 207);
+    background-color: aqua;
+    color: black;
+    border: 2px solid aqua;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
 a:hover, a:active{
     color:rgb(33, 108, 168);
-    font-family: Arial, sans-serif;
-    font-size:small;
-    text-decoration: none;
-    background-color: rgb(160, 211, 207);
 }
-
 
 /* block style
 someclass/some property insert numerb
