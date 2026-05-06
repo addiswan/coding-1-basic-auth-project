@@ -17,8 +17,7 @@ def init_db():
     conn.execute("""
         CREATE TABLE IF NOT EXISTS entries (
             title TEXT PRIMARY KEY,
-            content TEXT,
-            username TEXT
+            content TEXT
         )
     """)
     conn.commit()

@@ -128,8 +128,8 @@ def create():
 
         conn = get_db()
         conn.execute(
-            "INSERT INTO entries (title, content, username) VALUES (?, ?, ?)",
-            (title, content, session["user"])
+            "INSERT INTO entries (title, content) VALUES (?, ?)",
+            (title, content)
         )
         conn.commit()
         conn.close()
