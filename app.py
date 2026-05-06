@@ -79,8 +79,8 @@ def register():
 def dashboard():
     #  XTODO: RENAME THIS ROUTE TO /dashboard
 
-    # if "user" not in session:
-    #     return redirect(url_for("login"))
+    if "user" not in session:
+        return redirect(url_for("login"))
 
     # #  XTODO: Connect to the database
     conn = get_db()
