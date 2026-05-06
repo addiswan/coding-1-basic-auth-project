@@ -104,37 +104,42 @@ def dashboard():
 
 # ---------- CREATE ----------
 # TODO: Create a route like /create
+@app.route("/create", methods=["GET", "POST"])
+def create():
+    if "user" not in session:
+        return redirect(url_for("login"))
+
 # This page should:
 # - Show a form (GET)
 # - Save data to the database (POST)
 # - Redirect back to dashboard
 # NOTE: Remove the triple """ before and after each route to 'uncomment'
         # TODO: Get form data (title, content)
-
-        # TODO: Connect to database
-
-        # TODO: Insert into entries table
-        # IMPORTANT: include session["user"]
-
-        # TODO: Commit and close
-@app.route("/create", methods=["GET", "POST"])
-def create():
-    if "user" not in session:
-        return redirect(url_for("login"))
-
     if request.method == "POST":
         title = request.form["title"]
         content = request.form["content"]
 
-        conn = get_db()
-        conn.execute(
-            "INSERT INTO entries (title, content) VALUES (?, ?)",
-            (title, content)
-        )
-        conn.commit()
-        conn.close()
+        # TODO: Connect to database
+        if not title or not content:
+            error = "Fields cannot be empty"
+        else:
+            conn = get_db()
+            try:
+                conn.execute(
+                    "INSERT INTO entries (title, content) VALUES (?, ?)",
+                    (title, content)
+                )
+                conn.commit()
 
-        return redirect(url_for("dashboard"))
+                return redirect(url_for("dashboard"))
+            except:
+                conn.rollback()
+                error = "Title or content already exist(s) or error occurred"
+            finally:
+                conn.close()
+
+
+
 
     return render_template("create.html")
 
