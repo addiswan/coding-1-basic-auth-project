@@ -92,14 +92,12 @@ def dashboard():
       ).fetchall()
 
     # # TODO: Close the connection
-    # conn.close()
+    conn.close()
 
     # # TODO: Pass entries into your template
     # # Example:
-    # # return render_template("dashboard.html", entries=entries, username=session["user"])
+    return render_template("dashboard.html", entries=entries, username=session["user"])
 
-    # TEMPORARY (remove later)
-    return render_template("dashboard.html", username=session["user"])
 
 
 # ---------- CREATE ----------
@@ -137,10 +135,6 @@ def create():
                 error = "Title or content already exist(s) or error occurred"
             finally:
                 conn.close()
-
-
-
-
     return render_template("create.html")
 
     
@@ -152,8 +146,7 @@ def create():
 # - Show it in a form
 # - Update the database on submit
 
-"""
-@app.route("/edit/<int:id>", methods=["GET", "POST"])
+@app.route("/edit/<id>", methods=["GET", "POST"])
 def edit(id):
     if "user" not in session:
         return redirect(url_for("login"))
@@ -177,7 +170,7 @@ def edit(id):
         return redirect(url_for("dashboard"))
 
     return render_template("edit.html", entry=entry)
-"""
+
 
 # ---------- DELETE ----------
 # TODO: Create a route like /delete/<id>

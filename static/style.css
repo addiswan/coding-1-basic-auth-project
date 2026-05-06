@@ -53,6 +53,10 @@ a:hover, a:active{
     color:rgb(54, 17, 122);
 }
 
+hr{
+    color:rgb(34, 109, 80)
+}
+
 /* block style
 someclass/some property insert numerb
 endblock style */
