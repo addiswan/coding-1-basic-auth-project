@@ -146,26 +146,31 @@ def create():
 # - Show it in a form
 # - Update the database on submit
 
-@app.route("/edit/<id>", methods=["GET", "POST"])
+@app.route("/edit/['id']", methods=["GET", "POST"])
 def edit(id):
     if "user" not in session:
         return redirect(url_for("login"))
+    conn = get_db()
 
-    # TODO: Connect to database
+    entry = conn.execute(
+        "SELECT * FROM entries WHERE id=? AND user=?",
+        (id, session["user"])
+    ).fetchone()
 
-    # TODO: Get entry WHERE id AND user
-    # This prevents editing other users' data
-
-    # if not entry:
-    #     return "Not allowed"
+    if not entry:
+        conn.close()
+        return "Not allowed"
 
     if request.method == "POST":
-        # TODO: Get updated form data
+        title = request.form["title"]
+        content = request.form["content"]
 
-        # TODO: Update database
-        # IMPORTANT: include id AND session["user"]
-
-        # TODO: Commit and close
+        conn.execute(
+            "UPDATE entries SET title=?, content=? WHERE id=?",
+            (title, content, id)
+        )
+        conn.commit()
+        conn.close()
 
         return redirect(url_for("dashboard"))
 
