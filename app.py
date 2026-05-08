@@ -177,7 +177,7 @@ def edit(id):
                 conn.close()
                 return redirect(url_for("dashboard"))
             except:
-                conn.rollbaack()
+                conn.rollback()
                 conn.close()
                 return "Error updating entry"
         
