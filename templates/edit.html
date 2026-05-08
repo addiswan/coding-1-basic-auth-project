@@ -4,16 +4,14 @@
 
 <!-- TODO: Create a form that sends a POST request -->
 
-<div class="card">
 <h2>Edit Entry</h2>
 <form method="POST">
-    <input name="title" value="{{ entry['title'] }}"><br>
-    <input name="content" value="{{ entry['content'] }}"><br>
+    <input name="title" placeholder="Title" value="{{ entry['title'] }}"><br>
+    <input name="content" placeholder="Content" value="{{ entry['content'] }}"><br>
     <button type="submit">Update</button>
 </form>
-</div>
 
 <!-- TODO: Add a link back to dashboard -->
-<a href="/dashboard">Back to Dashboard</a>
+<a href="{{url_for('dashboard')}}">Back to Dashboard</a>
 
 {% endblock %}
