@@ -225,7 +225,7 @@ def reply(id):
         
 
     conn.close()
-    return render_template("reply.html", reply=reply)
+    return render_template("reply.html", entry=entry)
 
 
 
