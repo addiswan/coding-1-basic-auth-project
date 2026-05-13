@@ -18,7 +18,8 @@ def init_db():
         CREATE TABLE IF NOT EXISTS entries (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT,
-            content TEXT
+            content TEXT,
+            comments TEXT
         )
     """)
     conn.commit()

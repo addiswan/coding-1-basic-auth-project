@@ -186,9 +186,9 @@ def edit(id):
     return render_template("edit.html", entry=entry)
 
 
-#----------REPLY----------
-@app.route("/reply/<id>", methods=["GET", "POST"])
-def reply(id):
+#----------REPLY/COMMENT----------
+@app.route("/comment/<id>", methods=["GET", "POST"])
+def comment(id):
     if "user" not in session:
         return redirect(url_for("login"))
     conn = get_db()
@@ -201,20 +201,19 @@ def reply(id):
 
     if not entry:
         conn.close()
-        return "Reply not found"
+        return "Entry not found"
 
     if request.method == "POST":
-        title = request.form["title"]
-        content = request.form["content"]
+        comment = request.form["comment"]
 
-        if not title or not content:
+        if not comment:
             error = "Fields cannot be empty" 
         else:
             conn = get_db()
             try:
                 conn.execute(
-                "INSERT INTO entries (title, content, id) VALUES (?, ?)",
-                (title, content, id)
+                "INSERT INTO entries (id, comment) VALUES (?, ?)",
+                (id, comment)
                 )
                 conn.commit()
                 conn.close()
@@ -226,7 +225,7 @@ def reply(id):
         
 
     conn.close()
-    return render_template("reply.html", entry=entry)
+    return render_template("comment.html", comment=comment)
 
 
 
