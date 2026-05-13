@@ -192,20 +192,50 @@ def edit(id):
 # - Delete an entry from the database
 # - Redirect back to dashboard
 
-"""
-@app.route("/delete/<int:id>")
-def delete(id):
-    if "user" not in session:
-        return redirect(url_for("login"))
-
     # TODO: Connect to database
 
     # TODO: Delete entry WHERE id AND user
 
     # TODO: Commit and close
+@app.route("/edit/<int:id>", methods=["GET", "POST"])
+def edit(id):
+    if "user" not in session:
+        return redirect(url_for("login"))
+    conn = get_db()
 
+    entry = conn.execute(
+        "SELECT * FROM entries WHERE id=?",
+        (id)
+    ).fetchone()
+
+    if not entry:
+        conn.close()
+        return "Entry not found"
+
+    if request.method == "POST":
+        title = request.form["title"].strip()
+        content = request.form["content"].strip()
+
+        if not title or not content:
+            error = "Fields cannot be empty" 
+        else:
+            try:
+                conn.execute(
+                "UPDATE entries SET title=?, content=? WHERE id=?",
+                (title, content, id)
+                )
+                conn.commit()
+                conn.close()
+                return redirect(url_for("dashboard"))
+            except:
+                conn.rollback()
+                conn.close()
+                return "Error updating entry"
+        
+
+    conn.close()
     return redirect(url_for("dashboard"))
-"""
+
 
 
 @app.route("/logout")
