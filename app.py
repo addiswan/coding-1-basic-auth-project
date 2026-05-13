@@ -223,7 +223,7 @@ def reply(id):
         
 
     conn.close()
-    return render_template("edit.html", entry=entry)
+    return render_template("reply.html", entry=entry)
 
 
 
@@ -271,6 +271,8 @@ def delete(id):
                 conn.close()
             return redirect(url_for("dashboard"))
     conn.close()
+    return render_template("delete.html", entry=entry)
+
 
 
 
