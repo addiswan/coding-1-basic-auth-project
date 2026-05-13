@@ -154,7 +154,7 @@ def edit(id):
 
     entry = conn.execute(
         "SELECT * FROM entries WHERE id=?",
-        (id)
+        (id,)
     ).fetchone()
 
     if not entry:
@@ -184,6 +184,8 @@ def edit(id):
 
     conn.close()
     return render_template("edit.html", entry=entry)
+
+
 #----------REPLY----------
 @app.route("/reply/<int:id>", methods=["GET", "POST"])
 def reply(id):
@@ -223,7 +225,7 @@ def reply(id):
         
 
     conn.close()
-    return render_template("reply.html", entry=entry)
+    return render_template("reply.html", reply=reply)
 
 
 
