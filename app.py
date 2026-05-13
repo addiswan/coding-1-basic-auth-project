@@ -187,13 +187,13 @@ def edit(id):
 
 
 #----------REPLY----------
-@app.route("/reply/<int:id>", methods=["GET", "POST"])
+@app.route("/reply/<id>", methods=["GET", "POST"])
 def reply(id):
     if "user" not in session:
         return redirect(url_for("login"))
     conn = get_db()
 
-    reply = conn.execute(
+    entry = conn.execute(
         "SELECT * FROM entries WHERE id=?",
         (id,)
     ).fetchone()
@@ -204,15 +204,16 @@ def reply(id):
         return "Reply not found"
 
     if request.method == "POST":
-        title = request.form["title"].strip()
-        content = request.form["content"].strip()
+        title = request.form["title"]
+        content = request.form["content"]
 
         if not title or not content:
             error = "Fields cannot be empty" 
         else:
+            conn = get_db()
             try:
                 conn.execute(
-                "UPDATE entries SET title=?, content=? WHERE id=?",
+                "INSERT INTO entries (title, content, id) VALUES (?, ?)",
                 (title, content, id)
                 )
                 conn.commit()
@@ -221,7 +222,7 @@ def reply(id):
             except:
                 conn.rollback()
                 conn.close()
-                return "Error updating entry"
+                return "Error"
         
 
     conn.close()
