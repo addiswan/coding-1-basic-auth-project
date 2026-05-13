@@ -238,8 +238,8 @@ def reply(id):
     # TODO: Delete entry WHERE id AND user
 
     # TODO: Commit and close
-@app.route("/edit/<int:id>", methods=["GET", "POST"])
-def edit(id):
+@app.route("/delete/<int:id>", methods=["GET", "POST"])
+def delete(id):
     if "user" not in session:
         return redirect(url_for("login"))
     conn = get_db()
@@ -262,20 +262,15 @@ def edit(id):
         else:
             try:
                 conn.execute(
-                "UPDATE entries SET title=?, content=? WHERE id=?",
-                (title, content, id)
-                )
+                "DELETE FROM entries WHERE id=?",
+                (id))
                 conn.commit()
-                conn.close()
-                return redirect(url_for("dashboard"))
             except:
                 conn.rollback()
+            finally:
                 conn.close()
-                return "Error updating entry"
-        
-
+            return redirect(url_for("dashboard"))
     conn.close()
-    return redirect(url_for("dashboard"))
 
 
 
