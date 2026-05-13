@@ -199,9 +199,9 @@ def reply(id):
     ).fetchone()
 
 
-    if not entry:
+    if not reply:
         conn.close()
-        return "Entry not found"
+        return "Reply not found"
 
     if request.method == "POST":
         title = request.form["title"].strip()
