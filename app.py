@@ -195,7 +195,7 @@ def reply(id):
 
     reply = conn.execute(
         "SELECT * FROM entries WHERE id=?",
-        (id)
+        (id,)
     ).fetchone()
 
 
