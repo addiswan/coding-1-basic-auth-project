@@ -184,6 +184,46 @@ def edit(id):
 
     conn.close()
     return render_template("edit.html", entry=entry)
+#----------REPLY----------
+@app.route("/reply/<int:id>", methods=["GET", "POST"])
+def reply(id):
+    if "user" not in session:
+        return redirect(url_for("login"))
+    conn = get_db()
+
+    reply = conn.execute(
+        "SELECT * FROM entries WHERE id=?",
+        (id)
+    ).fetchone()
+
+    if not entry:
+        conn.close()
+        return "Entry not found"
+
+    if request.method == "POST":
+        title = request.form["title"].strip()
+        content = request.form["content"].strip()
+
+        if not title or not content:
+            error = "Fields cannot be empty" 
+        else:
+            try:
+                conn.execute(
+                "UPDATE entries SET title=?, content=? WHERE id=?",
+                (title, content, id)
+                )
+                conn.commit()
+                conn.close()
+                return redirect(url_for("dashboard"))
+            except:
+                conn.rollback()
+                conn.close()
+                return "Error updating entry"
+        
+
+    conn.close()
+    return render_template("edit.html", entry=entry)
+
 
 
 # ---------- DELETE ----------
