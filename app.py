@@ -196,6 +196,7 @@ def reply(id):
         (id)
     ).fetchone()
 
+
     if not entry:
         conn.close()
         return "Entry not found"
