@@ -238,7 +238,7 @@ def reply(id):
     # TODO: Delete entry WHERE id AND user
 
     # TODO: Commit and close
-@app.route("/delete/<int:id>", methods=["GET", "POST"])
+@app.route("/delete/<id>", methods=["GET", "POST"])
 def delete(id):
     if "user" not in session:
         return redirect(url_for("login"))
@@ -254,22 +254,16 @@ def delete(id):
         return "Entry not found"
 
     if request.method == "POST":
-        title = request.form["title"].strip()
-        content = request.form["content"].strip()
-
-        if not title or not content:
-            error = "Fields cannot be empty" 
-        else:
-            try:
-                conn.execute(
-                "DELETE FROM entries WHERE id=?",
-                (id))
-                conn.commit()
-            except:
-                conn.rollback()
-            finally:
-                conn.close()
-            return redirect(url_for("dashboard"))
+        try:
+            conn.execute(
+            "DELETE FROM entries WHERE id=?",
+            (id))
+            conn.commit()
+        except:
+            conn.rollback()
+        finally:
+            conn.close()
+        return redirect(url_for("dashboard"))
     conn.close()
     return render_template("delete.html", entry=entry)
 
