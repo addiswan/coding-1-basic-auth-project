@@ -199,7 +199,7 @@ def reply(id):
     ).fetchone()
 
 
-    if not reply:
+    if not entry:
         conn.close()
         return "Reply not found"
 
