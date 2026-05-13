@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- TODO: Create a form that sends a POST request -->
+
+<h2>Reply Entry</h2>
+<form method="POST">
+    <input name="title" placeholder="Title" value="{{ entry['title'] }}"><br>
+    <input name="content" placeholder="Content" value="{{ entry['content'] }}"><br>
+    <button type="submit">Update</button>
+</form>
+
+<!-- TODO: Add a link back to dashboard -->
+<a href="{{url_for('dashboard')}}">Back to Dashboard</a>
+
+{% endblock %}
