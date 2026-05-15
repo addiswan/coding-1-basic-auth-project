@@ -19,7 +19,6 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT,
             content TEXT,
-            session['user'] TEXT,
             comments TEXT
         )
     """)

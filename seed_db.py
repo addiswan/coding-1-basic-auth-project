@@ -43,8 +43,8 @@ def seed_database():
         
         for title, content in sample_entries:
             conn.execute(
-                "INSERT INTO entries (title, content, user) VALUES (?, ?, ?)",
-                (title, content, user)
+                "INSERT INTO entries (title, content) VALUES (?, ?)",
+                (title, content)
             )
             print(f"Created entries: {title}")
         
