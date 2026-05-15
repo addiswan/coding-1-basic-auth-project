@@ -204,7 +204,7 @@ def comment(id):
         return "Entry not found"
 
     if request.method == "POST":
-        comment = request.form["comments"]
+        comment = request.form["content"]
 
         if not comment:
             error = "Fields cannot be empty" 
@@ -225,7 +225,7 @@ def comment(id):
         
 
     conn.close()
-    return render_template("comment.html", entry=entry)
+    return render_template("comment.html", comments=comments)
 
 
 
