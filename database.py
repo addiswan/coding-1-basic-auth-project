@@ -11,7 +11,7 @@ def init_db():
     conn.execute("""
         CREATE TABLE IF NOT EXISTS users (
             username TEXT PRIMARY KEY,
-            password TEXT
+            password TEXT,
         )
     """)
     conn.execute("""
@@ -19,6 +19,7 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT,
             content TEXT,
+            user TEXT,
             comments TEXT
         )
     """)
