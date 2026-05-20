@@ -214,8 +214,8 @@ def comment(id):
             conn = get_db()
             try:
                 conn.execute(
-                "INSERT INTO entries (id, comment, user) VALUES (?, ?, ?)",
-                (id, comment, session['user'])
+                "INSERT INTO entries (id, content, user, comment) VALUES (?, ?, ?, ?)",
+                    (id, content, session['user'], comment)
                 )
                 conn.commit()
                 conn.close()
