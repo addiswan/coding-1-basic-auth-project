@@ -154,7 +154,7 @@ def edit(id):
 
     entry = conn.execute(
         "SELECT * FROM entries WHERE id=? AND user=?",
-        (id, user)
+        (id, session['user'])
     ).fetchone()
 
     if not entry:
