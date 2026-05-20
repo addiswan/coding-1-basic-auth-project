@@ -124,8 +124,8 @@ def create():
             conn = get_db()
             try:
                 conn.execute(
-                    "INSERT INTO entries (title, content) VALUES (?, ?)",
-                    (title, content,)
+                    "INSERT INTO entries (title, content, session['user']) VALUES (?, ?, ?)",
+                    (title, content, session['user'],)
                 )
                 conn.commit()
 
@@ -153,8 +153,8 @@ def edit(id):
     conn = get_db()
 
     entry = conn.execute(
-        "SELECT * FROM entries WHERE id=?",
-        (id, )
+        "SELECT * FROM entries WHERE id=? AND user=?",
+        (id, user)
     ).fetchone()
 
     if not entry:
@@ -170,8 +170,8 @@ def edit(id):
         else:
             try:
                 conn.execute(
-                "UPDATE entries SET title=?, content=? WHERE id=?",
-                (title, content, id)
+                "UPDATE entries SET title=?, content=? WHERE id=? AND user=?",
+                (title, content, id, session['user'])
                 )
                 conn.commit()
                 conn.close()
@@ -247,8 +247,8 @@ def delete(id):
     conn = get_db()
 
     entry = conn.execute(
-        "SELECT * FROM entries WHERE id=?",
-        (id, )
+        "SELECT * FROM entries WHERE id=? AND user=?",
+        (id, session['user'] )
     ).fetchone()
 
     if not entry:
@@ -258,8 +258,8 @@ def delete(id):
     if request.method == "POST":
         try:
             conn.execute()
-            "DELETE FROM entries WHERE id=?",
-            (id,)
+            "DELETE FROM entries WHERE id=? AND user=?",
+            (id, session['user'])
             conn.commit()
         except:
             conn.rollback()
