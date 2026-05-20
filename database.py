@@ -20,7 +20,7 @@ def init_db():
             title TEXT,
             content TEXT,
             user TEXT,
-            comments TEXT
+            comment TEXT
         )
     """)
     conn.commit()

@@ -195,13 +195,13 @@ def comment(id):
         return redirect(url_for("login"))
     conn = get_db()
 
-    entry = conn.execute(
+    comment = conn.execute(
         "SELECT * FROM entries WHERE id=?",
-        (id,)
+        (id)
     ).fetchone()
 
 
-    if not entry:
+    if not comment:
         conn.close()
         return "Not allowed"
 
@@ -214,8 +214,8 @@ def comment(id):
             conn = get_db()
             try:
                 conn.execute(
-                "INSERT INTO entries (id, comment) VALUES (?, ?)",
-                (id, comment)
+                "INSERT INTO entries (id, comment, user) VALUES (?, ?, ?)",
+                (id, comment, session['user'])
                 )
                 conn.commit()
                 conn.close()
@@ -227,7 +227,7 @@ def comment(id):
         
 
     conn.close()
-    return render_template("comment.html", comments=comments)
+    return render_template("comment.html", comment=comment)
 
 
 
