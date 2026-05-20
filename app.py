@@ -116,6 +116,7 @@ def create():
     if request.method == "POST":
         title = request.form["title"]
         content = request.form["content"]
+        user = session['user']
 
         # TODO: Connect to database
         if not title or not content:
@@ -124,8 +125,8 @@ def create():
             conn = get_db()
             try:
                 conn.execute(
-                    "INSERT INTO entries (title, content, session['user']) VALUES (?, ?, ?)",
-                    (title, content, session['user'],)
+                    "INSERT INTO entries (title, content, user) VALUES (?, ?, ?)",
+                    (title, content, user)
                 )
                 conn.commit()
 
@@ -136,6 +137,7 @@ def create():
             finally:
                 conn.close()
     return render_template("create.html")
+
 
     
 
@@ -248,7 +250,7 @@ def delete(id):
 
     entry = conn.execute(
         "SELECT * FROM entries WHERE id=? AND user=?",
-        (id, session['user'] )
+        (id, session['user'])
     ).fetchone()
 
     if not entry:
@@ -257,9 +259,10 @@ def delete(id):
 
     if request.method == "POST":
         try:
-            conn.execute()
+            conn.execute(
             "DELETE FROM entries WHERE id=? AND user=?",
             (id, session['user'])
+            )
             conn.commit()
         except:
             conn.rollback()
