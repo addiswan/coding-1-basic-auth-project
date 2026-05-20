@@ -4,7 +4,7 @@
 
 When you finish, add your names and a demo video link here, then submit one link to your project repository.
 
-**Group Members:** (list all group members here)  
+**Group Members:** (Miranda Beverly, Addison Felker)  
 * [Demo Video](https://drive.google.com/file/d/1N0l91fsbEmHBT3oMdemGa44z9bJsacgU/view?usp=sharing)
 
 ---
