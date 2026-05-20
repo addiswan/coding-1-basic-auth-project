@@ -4,35 +4,35 @@ APP PLANNING & DESIGN
 
 1. PROJECT IDEA
 -------------------------
-- What is your app called?
-- What type of app is it? (journal, listings, notes, etc.)
-- What will users use your app for?
+- What is your app called? Quacker
+- What type of app is it? (journal, listings, notes, etc.) Anonymous notes/posting app
+- What will users use your app for? Miscellaneous things - they can say whatever they want with full anonymity
 
 2. DATA MODEL (WHAT ARE YOU STORING?)
 -------------------------
-- What is a single “entry” in your app?
-- What fields will each entry have? (title, content, date, etc.)
-- How will entries be connected to a user?
+- What is a single “entry” in your app? A title and paragraph of content
+- What fields will each entry have? (title, content, date, etc.) Title, content, username
+- How will entries be connected to a user? Extra database criteria
 
 3. CORE FEATURES (CRUD)
 -------------------------
-- What can users CREATE?
-- What will they see on the main page (READ)?
-- What can users EDIT (UPDATE)?
-- What can users DELETE?
+- What can users CREATE? Posts
+- What will they see on the main page (READ)? Others' posts
+- What can users EDIT (UPDATE)? Their own posts
+- What can users DELETE? Their own posts
 
 4. USER FLOW
 -------------------------
-- What happens after a user logs in?
-- What pages/routes will your app need? (dashboard, create, edit, etc.)
-- Describe a typical user experience from login → using your app
+- What happens after a user logs in? They'll see their dashboard with posts on it
+- What pages/routes will your app need? (dashboard, create, edit, etc.) Dashboard, create, edit, delete, login, register
+- Describe a typical user experience from login → using your app | Login, dashboard, create if they choose to post something
 
 5. USER EXPERIENCE (UX)
 -------------------------
-- How should your app look and feel?
-- How will users navigate between pages?
-- How will entries be displayed (list, cards, etc.)?
+- How should your app look and feel? Colorful/put together
+- How will users navigate between pages? Buttons/links
+- How will entries be displayed (list, cards, etc.)? A list of cards
 
 6. OPTIONAL FEATURES
 -------------------------
-- What extra features might you add? (search, tags, sorting, etc.)
+- What extra features might you add? (search, tags, sorting, etc.) A reply function (hopefully)

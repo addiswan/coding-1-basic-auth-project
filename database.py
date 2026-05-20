@@ -11,7 +11,7 @@ def init_db():
     conn.execute("""
         CREATE TABLE IF NOT EXISTS users (
             username TEXT PRIMARY KEY,
-            password TEXT,
+            password TEXT
         )
     """)
     conn.execute("""
